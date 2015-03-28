@@ -53,7 +53,7 @@ var shotgun = (function () {
                 args.push(getValue());
             }
 
-            f(args);
+            f.apply(null, args);
 
             options.n -= 1;
         };
@@ -62,3 +62,8 @@ var shotgun = (function () {
     };
 
 }());
+
+// Allow node.js to see us.
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = shotgun;
+}
