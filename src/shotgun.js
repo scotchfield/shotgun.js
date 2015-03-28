@@ -31,7 +31,7 @@ var shotgun = (function () {
     };
 
     return function (f, user_options) {
-        var key, args, i, arg_count,
+        var key, args, i, arg_count, result = true,
             options = {
                 n: 10,
                 args_min: 1,
@@ -40,7 +40,7 @@ var shotgun = (function () {
             };
 
         if (typeof f !== 'function') {
-            return;
+            return false;
         }
 
         for (key in user_options) {
@@ -60,12 +60,16 @@ var shotgun = (function () {
             try {
                 f.apply(options.this, args);
             } catch (e) {
+                result = false;
+
                 console.log('** ERROR: ' + e);
                 console.log(args);
             }
 
             options.n -= 1;
         };
+
+        return result;
     };
 
 }());
