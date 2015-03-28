@@ -17,6 +17,9 @@ After loading jQuery 2.1.3 and shotgun.js:
     > shotgun(body.addClass);
     ** ERROR: TypeError: undefined is not a function
        [function, 281610]
+    ** ERROR: TypeError: undefined is not a function
+       [function, Object, -91251, function, true, Object, function, "", ""]
+    ....
     < false
 
 Forcing all arguments to be functions:
