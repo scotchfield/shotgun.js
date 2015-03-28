@@ -33,10 +33,11 @@ var shotgun = (function () {
                 n: 10,
                 args_min: 1,
                 args_max: 10,
+                this: null,
             };
 
         if (typeof f !== 'function') {
-            return false;
+            return;
         }
 
         for (key in user_options) {
@@ -53,12 +54,15 @@ var shotgun = (function () {
                 args.push(getValue());
             }
 
-            f.apply(null, args);
+            try {
+                f.apply(options.this, args);
+            } catch (e) {
+                console.log('** ERROR: ' + e);
+                console.log(args);
+            }
 
             options.n -= 1;
         };
-
-        return true;
     };
 
 }());
