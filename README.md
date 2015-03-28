@@ -1,2 +1,2 @@
 # shotgun.js
-Shotgun testing for JavaScript objects
+Shotgun testing for JavaScript functions
