@@ -3,8 +3,11 @@
 var shotgun = (function () {
     'use strict';
 
-    var getValue = function () {
-        var v, i, choice = getRandomArray(['b', 'f', 'i', 'o', 's']);
+    var getValue = function (choice) {
+        var v, i;
+
+        choice = choice || getRandomArray(['b', 'f', 'i', 'o', 's']);
+
         if (choice === 'b') {
             v = getRandomArray([true, false]);
         } else if (choice === 'f') {
@@ -14,7 +17,7 @@ var shotgun = (function () {
         } else if (choice === 'o') {
             v = {};
         } else if (choice === 's') {
-            v = 'string';
+            v = '';
         }
         return v;
     },
@@ -51,7 +54,7 @@ var shotgun = (function () {
             arg_count = getRandomInt(options.args_min, options.args_max);
 
             for (i = 0; i < arg_count; i += 1) {
-                args.push(getValue());
+                args.push(getValue(options.choice));
             }
 
             try {
