@@ -17,7 +17,7 @@ var shotgun = (function () {
         } else if (choice === 'o') {
             v = {};
         } else if (choice === 's') {
-            v = '';
+            v = Math.random().toString(36).slice(2);
         }
         return v;
     },
