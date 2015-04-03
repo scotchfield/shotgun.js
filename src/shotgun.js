@@ -6,7 +6,7 @@ var shotgun = (function () {
     var getValue = function (choice) {
         var v, i;
 
-        choice = choice || getRandomArray(['b', 'f', 'i', 'o', 's']);
+        choice = choice || getRandomArray(['b', 'f', 'i', 'n', 'o', 's', 'u']);
 
         if (choice === 'b') {
             v = getRandomArray([true, false]);
@@ -14,10 +14,14 @@ var shotgun = (function () {
             v = function () {};
         } else if (choice === 'i') {
             v = getRandomInt(-1000000, 1000000);
+        } else if (choice === 'n') {
+            v = null;
         } else if (choice === 'o') {
             v = {};
         } else if (choice === 's') {
             v = Math.random().toString(36).slice(2);
+        } else if (choice === 'u') {
+            v = undefined;
         }
         return v;
     },
@@ -34,7 +38,7 @@ var shotgun = (function () {
         var key, args, i, arg_count, result = true,
             options = {
                 n: 10,
-                args_min: 1,
+                args_min: 0,
                 args_max: 10,
                 this: null,
             };
